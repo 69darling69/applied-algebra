@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\subsection{Введение}
+			\begin{definition}
+				Кольцо $R$ - множество элементов с двумя бинарными операциями, такие что:
+				\begin{enumerate}
+					\item $a + b = b + a$ (коммутативность)
+					\item $(a + b) + c = a + (b + c)$ (ассоциативность)
+					\item $\exists$ нейтральный элемент относительно сложения:\\
+					$a+0 = 0+a = a, \forall a \in R$
+					\item $\exists$ противоположный отностильно сложения:\\
+					$-a \in R \big| (-a) + a = a + (-a) = 0$
+					\item ассоциативность\\
+					$a(bc) = (ab)c$
+					\item дистрибутивность\\
+					$a(b+c) = ab + ac$\\
+					$(b+c)a = ba + ca$
+				\end{enumerate}
+			\end{definition}
+			\begin{theorem}[Свойства колец]
+				Пусть $a, b, c \in R$ - кольцо
+				\begin{enumerate}
+					\item $a \cdot 0 = 0 \cdot a = 0$
+					\item $a(-b) = (-a)b = -(ab)$
+					\item $(-a)(-b) = ab$
+					\item $a(b-c) = ab - ac$\\
+					$(b-c)a = ba - ca$
+					\\\\ Кроме того, если $R$ имеет единичный элемент $1$ относительно умножения, то
+					\item $(-1)a = -a$
+					\item $(-1)(-1) = 1$
+				\end{enumerate}
+			\end{theorem}
+			\begin{theorem}
+				Если кольцо имеет единичный элемент, то этот элемент единственен. Если для $a \in R \exists a^{-1}$, то $a^{-1}$ - единственен.
+			\end{theorem}
+			\begin{definition}
+				Подмножество $S$ кольца $R$ называется подкольцом в $R$, если само является кольцом относительно операции, заданных в $R$.
+			\end{definition}
+			\begin{theorem}[Признак подкольца]
+				Непустое подмножество $S$ кольца $R$ является подкольцом, если $S$ замкнуто относительно операций минус и умножить, т.е. если
+				\begin{tabular}{l}
+				$a-b$\\
+				$ab$			
+				\end{tabular}
+				$\Big\} \in R, \forall a, b \in S$
+			\end{theorem}
+		\subsection{Кольца целостности}
+			\begin{definition}
+				Делитель нуля $0 \neq a \in R$ - коммутативное кольцо $\big| \exists 0 \neq b \in R $ и $ab = 0$.
+			\end{definition}
+			\begin{definition}
+				Кольцо целостности - коммутативное кольцо с единицей без делителей нуля.
+			\end{definition}
+			\begin{theorem}
+				Пусть $a, b, c \in R$ - кольцо целостности. Если $a \neq 0$ и $ab = ac$, то $b = c$.
+			\end{theorem}
+			\begin{proof}
+				Рассмотрим $ab = ac$\\
+				$ab - ac = 0$\\
+				$a(b-c) = 0$, где $a \neq 0$\\
+				$\Rightarrow b - c = 0$\\
+				$b = c$
+			\end{proof}
+			\begin{definition}
+				Поле - коммутативное кольцо с единицей, в котором любой отличный от нуля элемент обратим.
+			\end{definition}
+			\begin{theorem}
+				Конечное кольцо целостности является полем.
+			\end{theorem}
+			\begin{proof}
+				Пусть $D$ - конечное кольцо целостности с единицей.\\
+				Рассмотрим $0 \neq a \ in D$\\
+				Докажем, что $a$ - обратим\\
+				Если $a = 1 \Rightarrow$ очевидно\\
+				Пусть $a \neq 1$\\
+				\begin{tabular}{l}
+				$a, a^2, a^3, ...$\\
+				$D$ - конечно			
+				\end{tabular}
+				$\Big\} \Rightarrow \exists i > j \big| a^i = a^j$\\
+				$\Rightarrow a^i - a^j = 0$\\
+				$a^j(a^{i-j}-1) = 0$, где $a^j \neq 0$\\
+				$a^{i-j} = 1$\\
+				$\Rightarrow a^{i-j-1}$ - обратный к $a$.
+			\end{proof}
+			\begin{corollary}
+				Для $\forall p$ - простых, $\Z_p$ - поле.
+			\end{corollary}
+			\begin{definition}
+				Характеристика кольца $R$ - наименьшее положительное целое $n \big| n \cdot x = 0, \forall x \in R$.\\
+				Если такого $n$ не существует, то будем говорить, что $R$ имеет характеристику 0. Обозначается $char R = n$.
+			\end{definition}
+\end{document}
