@@ -1,0 +1,37 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\setcounter{subsection}{2}
+		\subsection{Идеалы и фактор-кольца}
+			\paragraph{Идеалы}
+				\begin{definition}
+					Полькольцо $A$ кольца $R$ называется идеалом кольца $R$, если для $\forall r \in R$ и $\forall a \in A : ra; ar \in A$.\\
+					Идеал $A$ в $R$ называется собственным идеалом кольца $R$, если $A \subset R$. 
+				\end{definition}
+			\paragraph{Фактор-кольца}
+				Пусть  $R$ - кольцо $\Rightarrow R$ - аддитивная группа; $A$ - идеал в $R \Rightarrow$ рассмотрим ее как нормальную подгруппу.
+				$\Rightarrow {}^R/_A = \{r + A | r \in R\}$.
+				\begin{theorem}
+					Пусть $R$ - кольцо; $A$ - полькольцо в $R$.
+					Множество классов $\{r + A | r \in R\}$ - кольцо относительно операций:\\
+					\begin{tabular}{l}
+						$(s + A) + (t + A) = s + t + A$\\
+						$(s + A) \cdot (t + A) = st + A$
+					\end{tabular}
+					$\Leftrightarrow A$ - идеал в $R$.
+				\end{theorem}
+\end{document}
