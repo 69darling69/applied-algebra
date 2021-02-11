@@ -1,0 +1,67 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\setcounter{subsection}{2}
+		\subsection{Идеалы и фактор-кольца}
+			\paragraph{Простые и max идеалы}
+				\begin{definition}
+					Простым идеалом $A$ коммутативного кольца $R$ называется собственный идеал в $R \big|$ для $a, b \in R$ и $ab \in A \Rightarrow \Big[$
+					\begin{tabular}{l}
+						$a \in A$\\
+						$b \in A$
+					\end{tabular}
+				\end{definition}
+				\begin{definition}					
+					Максимальным идеалом $A$ коммутативного кольца $R$ называется собственный идеал в $R \big| \nexists$ идеала $B$ в $R \big| A \subset B \subset R$
+				\end{definition}
+				\begin{theorem}
+					Пусть $R$ - коммутативное кольцо с единицей; $A$ - идеал в $R. {}^R/_A$ - кольцо целостности тогда и только тогда, когда $A$ - простой идеал.
+				\end{theorem}
+				\begin{proof}
+					Пусть ${}^R/_A$ - кольцо целостности.\\
+					Рассмотрим $ab \in A$, где $a, b \in R$\\
+					Так как $a, b \in R \Rightarrow a+A, b+A \in {}^R/_A$\\
+					Рассмотрим $(a+A)(b+a) = ab+A = A$ - нулевой элемент кольца ${}^R/_A$\\
+					Так как ${}^R/_A$ - кольцо целостности\\
+					и $(a+A)(b+a) = A \Rightarrow \Big[$
+					\begin{tabular}{l}
+						$a+A = A$\\
+						$b+A = A$
+					\end{tabular}
+					$\Rightarrow \Big[$
+					\begin{tabular}{l}
+						$a \in A$\\
+						$b \in A$
+					\end{tabular}
+					$\Rightarrow A$ - простой идеал
+				\end{proof}
+				\begin{theorem}
+					Пусть $R$ - коммутативное кольцо с единицей, $A$ - идеал в $R. {}^R/_A$ - поле $\Leftrightarrow A$ - max.
+				\end{theorem}
+				\begin{proof} Необходимость
+					Пусть ${}^R/_A$ - поле\\
+					Рассмотрим $B$ - идеал в $R \big| A \subset B$\\
+					$\Rightarrow \exists b \in B$ и $b \notin A \Rightarrow b + A$ - ненулевой элемент в ${}^R/_A \Rightarrow$ так как ${}^R/_A$ - поле, то $\exists c+A \in {}^R/_A \big| (b+A)(c+A) = 1+A = bc + A$\\
+					$1 - bc \in A \subset B \Rightarrow 1 - bc \in B \Rightarrow 1 \in B \Rightarrow B = R$
+					Таким образом $A \subset B \subseteq R \Rightarrow A$ - max\\\\
+					Достаточность\\
+					Пусть $A$ - max. Рассмотрим $b \in R \big| b \notin A$\\
+					Рассмотрим $B = \{br + a \big| r \in R, a \in A\}$ - идеал в $R$ и $A \subset B$\\
+					$\Rightarrow B = R \Rightarrow 1 \in B \Rightarrow 1 = bc + a'$, где $a' \in A, c \in R$\\
+					$1 + A = bc + a' + A = bc + A = (b + A)(c + A) \Rightarrow$ для класса $b+A\exists$ обратный класс $c + A \big| (b+A)(c+A) = 1+A$, тое сть $b+A$ - обратим $\Rightarrow {}^R/_A$ - поле
+				\end{proof}
+\end{document}
