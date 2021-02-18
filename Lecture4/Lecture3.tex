@@ -1,0 +1,109 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\setcounter{subsection}{3}
+		\subsection{Гомоморфизм колец}
+			\subsubsection{Основные определения и примеры}
+				\begin{definition}
+					Гомоморфизмом колец $\varphi: R \to S$ (кольца) называется отображение:
+					\begin{enumerate}
+						\item $\varphi(a+b) = \varphi(a) + \varphi(b)$
+						\item $\varphi(ab) = \varphi(a) \cdot \varphi(b)$
+					\end{enumerate}
+					Изоморфизмом колец называется гомоморфизм колец, действующий биективно.
+				\end{definition}
+			\subsubsection{Свойства гомоморфизмов колец}
+				\begin{theorem}
+					Пусть $\varphi: R \to S$ - гомоморфизм колец, $A$ - подкольцо в $R; B$ - идеал в $S$.
+					\begin{enumerate}
+						\item Для $\forall r \in R$ b положительного целого $n:$
+							\begin{tabular}{l}
+								$\varphi(n \cdot r) = n \cdot \varphi(r)$\\
+								$\varphi(r^n) = (\varphi(r))^n$
+							\end{tabular}
+						\item $\varphi(A) = \{\varphi(a) \big| a \in A\}$ - подкольцо в $S$
+						\item $\varphi^{-1}(B) = \{r \in R \big| \varphi(r) \in \varphi\}$ - идеал в $B$
+						\item Если $R$ - коммутативно, то $\varphi(R)$ - коммутативно
+						\item Если $1 \in R; S \neq \{0\}$ и $\varphi$ - сюръективно, то $\varphi(1)$ - обратим (единица) в $S$
+						\item $\varphi$ - изоморфизм $\Leftrightarrow \varphi$ - сюръективно и $Ker\ \varphi = \{r \in R \big| \varphi(r) = 0\} = \{0\}$
+						\item Если $\varphi$ - изоморфизм, то $\varphi^{-1}$ - изоморфизм
+					\end{enumerate}
+				\end{theorem}
+				\begin{theorem}
+					Пусть $\varphi: R \to S$ - изоморфизм колец. Тогда $Ker\ \varphi = \{r \in R \big| \varphi(r) = 0\}$ - идеал в $R$
+				\end{theorem}
+				\begin{theorem}
+					Пусть $\varphi: R \to S$ - изоморфизм колец. Тогда отображение
+					\begin{tabular}{l}
+						${}^R/_{Ker\ \varphi} \to \varphi(R)$\\
+						$r + Ker\ \varphi \to \varphi(r)$
+					\end{tabular}
+					- изоморфизм: ${}^R/_{Ker\ \varphi} \cong \varphi(R)$
+				\end{theorem}
+				\begin{theorem}
+					$\forall$ идеал в кольце $R$ является ядром гомоморфизма кольца $R$. В частности, идеал $A$ из $R$ есть $Ker\ \varphi$, где $\varphi:$
+					\begin{tabular}{l}
+						$R \to {}^R/_A$\\
+						$r \to r+A$
+					\end{tabular}
+				\end{theorem}
+				\begin{theorem}
+					Пусть $R$ - кольцо с единицей.\\
+					Отображение $\varphi:$
+					\begin{tabular}{l}
+						$\Z \to R$\\
+						$n \to n \cdot 1$
+					\end{tabular}
+					- гомоморфизм колец
+				\end{theorem}
+				\begin{corollary}
+					Если $R$ - кольцо с единицей и $char(R) = n > 0$, то $R$ содержит подкольцо, изоморфное $\Z_n$\\
+					Если $char(R) = 0$, то $R$ содержит подкольцо, изоморфное $\Z$.
+				\end{corollary}
+				\begin{proof}
+					Пусть $1$ - единица $R$\\
+					Рассмотрим $S = \{k \cdot 1 \big| k \in Z\}$\\
+					По предыдущей теореме: отображение $\varphi:$
+					\begin{tabular}{l}
+					$\Z \to S$\\
+					$k \to k \cdot 1$
+					\end{tabular}
+					- гомоморфизм колец\\
+					По первой теореме об изоморфизмах: ${}^{\Z}/_{Ker\ \varphi} \cong \varphi(\Z)$\\
+					$Ker\ \varphi = \{k \in \Z \big| \varphi(k) = 0\}$, где $\varphi(k) = k \cdot 1 \Rightarrow k \cdot 1 = 0 \Rightarrow k \ char\ S \Rightarrow k$ - аддитивный порядок $1 \Rightarrow Ker\ \varphi = (k)$\\
+					${}^{\Z}/_{Ker\ \varphi} = {}^{\Z}/_{(k)} = \Z_k$\\
+					$\varphi(\Z) \subset S$\\
+					$\Z_k \cong \varphi(\Z) \subset S$\\
+					Можно рассмотреть отображение на себя (сюръективность)\\
+					$k = char\ \Z_k = char\ S \Rightarrow \varphi(\Z) = S \Rightarrow \Z_k \cong S$\\
+					Если $char\ R = 0 \Rightarrow S \cong {}^{\Z}/{(0)} \cong \Z$
+				\end{proof}
+				\begin{corollary}
+					Для $\forall$ положительныц целых $m$ отображение $\varphi:$
+					\begin{tabular}{l}
+						$\Z \to \Z_m$\\
+						$x \to x\ (mod\ m)$
+					\end{tabular}
+					является гомоморфизмом.
+				\end{corollary}
+				\begin{corollary}
+					Пусть $F$ - поле и $char\ F = p$. Тогда $F$ содержит подполе, изоморфное $\Z_p$. Если $char\ F = 0$, то $F$ содержит подполе, изоморфное полю рациональных чисел.
+				\end{corollary}
+				\begin{theorem}
+					Пусть $D$ - кольцо целостности. Тогда $\exists$ поле $F$, которое содержит подкольцо, изоморфное $D$.
+				\end{theorem}
+\end{document}
