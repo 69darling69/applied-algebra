@@ -1,0 +1,74 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\setcounter{subsection}{4}
+		\subsection{Полиномиальные кольца}
+			\paragraph{Основные определения}
+				\definition{Пусть $R$ - коммутативное кольцо $ R[X] = \{a_nX^n + a_{n-1}X^{n-1} + ... + a_1X + a_0 \big| a_i \in R\}, n \in \N$ - кольцо многочленов над $ R $ от переменной $ X $.}
+				\definition{Пусть $ R $ - коммутативное кольцо, $ f(X), g(X) \in R[X] $ - полиномиальные кольца. Тогда $ f(X) \cdot g(X) = c_{m+n}X^{m+n} + ... + c_1X + c_0, f(X) + g(X) = (a_s+b_s)X^s + ... + (a_1+b_1)X + a_0 + b_0$}
+				\theorem{Если $ D $ - кольцо целостности, то $ D[X] $ - кольцо целостности.}
+			\paragraph{Алгоритм деления}
+				\theorem{Пусть $ F $ - поле и $ f(X), g(X) \in F[X] $. Тогда $ \exists! q(X), r(X) \in F[X] \big| f(X) = g(X) \cdot q(X) + r(X) $. Либо $ r(X) = 0 $, либо $ \deg r < \deg g $.}
+				\corollary{$ a $ - нуль $ f(X) \Leftrightarrow (X-a)$ - множитель $ f(X) $.}
+				\corollary{Многочлен степени $ n $, определенный над некоторым полем, имеет не более $ n $ нулей с учетом их кратности.}
+				\definition{Кольцо главных идеалов - кольцо целостности, в котором любой идеал главный.}
+				\theorem{Пусть $ F $ - поле, $ I $ - ненулевой идеал в $ F[X] $ и $ g(X) \in F[X] $. Тогда $ I = (g(X)) \Leftrightarrow g(X)$ - ненулевой многочлен минимальной степени в $ I $.}
+		\subsection{Факторизация многочленов}
+			\definition{Пусть $ D $ - кольцо целостности. Необратимый ненулевой многочлен $ f(X) \in D[X]$ называется неприводимым над $ D $, если $ f(X) \neq g(X) \cdot h(X) $, где $ g(X) \neq const, h(X) \in D[X] $.}
+			\theorem{Пусть $ F $ - поле. Если $ f(X) \in F[X] $ и $ \deg f = \Big[$\begin{tabular}{l}$2$\\$3$\end{tabular}, то $ f $ приводимо над $ F \Leftrightarrow f(X)$ имеет ноль в $ F $.}
+			\definition{Содержание ненулевого многочлена вида $ a_nX^n + a_{n-1}X^{n-1} + ... + a_1X + a_0 $, это НОД$ (a_n, a_{n-1}, ..., a_0) $.\\Примитивный многочлен - это многочлен из $ \Z[X] $ с содержанием $ =1 $.}
+			\lemma[Гаусса]{Произведение двух примитивных многочленов есть примитивный многочлен.}
+			\begin{proof}
+				Рассмотрим $ f(X) $ и $ g(X) $ - примитивные\\
+				От противного:\\
+				Пусть $ f(X) \cdot g(X) $ - не является примитивным многочленом\\
+				Пусть простое $ p | content(f \cdot g)$\\
+				Если $ \Z_p[X] = F_p[X]  \Rightarrow \overline f(X), \overline g(X) $ создаются классами $ f(X), g(X) $\\
+				$ \Rightarrow f(X) \cdot g(X) \to \overline{f(X) \cdot g(X)}$\\
+				$ \Z_p[X] $ - кольцо целостности\\
+				$ \overline{f}(X) \cdot \overline{g}(X) =  \overline{f(X) \cdot g(X)} = 0$\\
+				$\Rightarrow \Big[$ \begin{tabular}{l}$ \overline{f}(X) = 0 $\\$ \overline{g}(X) = 0 $\end{tabular}, так как $ F_p[X] $ - кольцо целостности\\
+				$\Rightarrow \Big[$ \begin{tabular}{l}$p|content(f)$\\$p|content(g)$\end{tabular} $\Rightarrow$ противоречие\\
+				$\Rightarrow f(X) \cdot g(X)$ - примитивный
+			\end{proof}
+		
+			\textbf{Переформулировка:} Пусть $ f(X) \in \Z[X] $. Если $ f $ - неприводим над $ \Q $, то $ f $ - неприводим над $ \N $.
+			
+			\paragraph{Тесты на неприводимость}
+				\theorem{Пусть $ p $ - простое и $ f(X) \in \Z[X], \deg f \geq 1, f(X) \in \Z_p[X] = F_p[X] (mod\ p)$. Если $ \overline{f(X)} $ неприводим на $ F_p $ и $ \deg \overline{f}$, то $ f(X) $ - неприводим над $\Q$.}
+				\note{Если $ f(X) \in \Z[X] $ и $ \overline{f}(X) $ неприводим над $ F_p $, то в обратную сторону выполняется не всегда.}
+				\theorem[Критерий Эйзенштейна]{Пусть $ f(X) = a_nX^n + a_{n-1}X^{n-1} + ... + a_1X + a_0 \in \Z[X]$. Если $ \exists p $ - простое $ \big| p\not|\ a_n, p|a_{n-1}, ..., p|a_0, p^2\not|\ a_0$, то $ f $ неприводима над $ \Q $.}
+				\begin{proof}
+					От противного\\
+					Пусть $ f(X) $ - приводим над $ \Q $\\
+					$\Rightarrow \exists g, h \in \Z[X] \big| f(X) = g(X)\cdot h(X)$ и $ \deg g, \deg h \geq 1$\\
+					По условию $ p|a_0, p^2 \not|\ a_0$\\
+					$ a_0 = b_0 \cdot c_0 \Rightarrow \Big[ $\begin{tabular}{l}$p|b_0$\\$p|c_0$\end{tabular}\\
+					По условию $ p \not|\ a_n = b_r \cdot c_s \Rightarrow \Big[$\begin{tabular}{l}$p\not|\ b_r$\\$p\not|\ c_s$\end{tabular}\\
+					$\Rightarrow f$ - нериводим, так как противоречие. 
+				\end{proof}
+				\corollary{Для любого простого $ p $ многочлен, называемый круговым или циклотоническим, Ф$ _p(X) = \frac{X-1}{X+1} = X^{p-1} + X^{p-2} + ... + X + 1$ неприводим над $ \Q $.}
+				\theorem{Пусть $ F $ - поле, $ f(X) \in F[X] $. Тогда $ (f(X)) $ - max в $ F[X] \Leftrightarrow f(X)$ - неприводим над $ F $.}
+				\corollary{$ ^{F[X]}/_{(f(X))} $ - поле.}
+				\corollary{$ f(x), g(X), h(X) \in F[X] $. Если $ f $ неприводим над $ F $ и $ f | g\cdot h $, то $ \Big[ $\begin{tabular}{l}$f|g$\\$f|h$\end{tabular}}
+				\theorem{Любой многочлен в $ \Z[X] $, не являющимся ни нулем, ни константой, может быть записан в следующем виде $ b_1 \cdot b_2 \cdot ... \cdot b_s \cdot f_1(X) \cdot f_2(X) \cdot ... \cdot f_m(X)$, где $ b_i = const$. $ f_j $ - неприводимые многочлены, кроме того, если $ b_1 \cdot b_2 \cdot ... \cdot f_1(X) \cdot f_2(X) \cdot ... \cdot f_m(X) = c_1 \cdot c_2 \cdot ...\cdot c_t \cdot g_1(X) \cdot g_2(X) \cdot ... \cdot g_n(X) $, то $ s=t, m=n, |b_i| = c_i, |f_j| = g_j $.}
+				
+			
+\end{document}
