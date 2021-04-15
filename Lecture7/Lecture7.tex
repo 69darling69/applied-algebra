@@ -1,0 +1,40 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 3
+	\setcounter{section}{2}
+	\section{Поля}
+		\setcounter{subsection}{0}
+		\subsection{Векторные пространства}
+			\definition{Множество $ V $ называется векторным пространством над полем $ F $, если $ V $ - абелева группа относительно сложения и если для $ \forall a \in F $ и $ \forall v \in V \exists av \in V \big| $ выполняются условия:
+			\begin{enumerate}
+				\item $ a(v+u) = av + au $
+				\item $ (a+b)v = av + br $
+				\item $a(br) = ()ab)v$
+				\item $ 1 \cdot v = v, \forall a, b \in F, \forall u, v \in V $
+			\end{enumerate}}
+			\definition{Пусть $ V $ - векторные пространство над полем $ F, U $ - подмножество в $ V$. $ U $ называются подпространством $ V $, если $ U $ - векторное пространство над $ F $ относительно операций в $ V $.}
+			\definition{Пусть $ S = \{v_1, v_2, ..., v_n\} $ - множество векторов. Векторы из $ S $ называются линейно зависимыми над $ F $, если $ \exists a_1, ..., a_n $ и не все $ a_i=0 \big| a_1v_1 + ... + a_nv_n = 0 $. В противном случае векторы из $ S $ называются линейно независимыми.}
+			\definition{Пусть $ V $ - векторное пространство над $ F $. Подмножество $ B \subset V $ называется базисом пространства $ V $, если $ B $ - линейно независимо над $ F $ и $ \forall $ элемент из $ V $ есть линейная комбимнация элементов из $ B $.}
+			\theorem{Если $ \{u_1, u_2, ..., u_m\} $ и $ \{w_1, w_2, ..., w_m\} $ - базисы вектрное пространство $ V $ над полем $ F $, то $ m=n $.}
+			\definition{Пусть векторное пространство имебщее базис, состоящий из $ n $ элементов. В этом случае говорят, что размерность $ V (\dim_F V) = n $.}
+		\subsection{Расширение полей}
+			\definition{Поле $ E $ называется расширением поля $ F $, если $ F \subseteq E $ и операции в $ F $ - операции из $ E $, суженные до $ F $.}
+			\theorem[Кронекера]{Пусть $ F $ - поле и $ f(X)(\neq const) \in F[X] $. Тогда $ \exists $ расширение $ E $ поля $ F $, в котором многочлен $ f(X) $ имеет ноль (корень).}
+			\definition{Пусть $ E $ - расширение поля $ F $ и $ f(X) \in F[X] $. Многочлен $ f $ расщепляется в $ E $, если $ f $ разлагаетсяв произведение линейных множителей в $ E[X] $. $ E $ называется полем разложения для $ f $ над $ F $, если $ f $ расщепляется в $ E $, но ни в каком другом собственном подполе $ E $.}
+			\theorem{Пусть $ F $ - поле, $ f(X)(\neq const) \in F[X] $. Тогда $ \exists $ поле разложения $ ^E/_F $ для многочлена $ f(X) $.}
+\end{document}
