@@ -1,0 +1,80 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 2
+	\setcounter{section}{1}
+	\section{Теория колец}
+		\setcounter{subsection}{5}
+		\subsection{Делимость в кольцах целостности}
+			\paragraph{Неприводимость и простота}
+				\definition{Пусть $ D $ - кольцо целостности, $ a, b \in D $ - называются ассоциированными, если $ a = u \cdot b $, где $ u \in D^* $ - обратимые элементы.\\$ a \in D $ называется неприводимым, если $ a \not \in D^* $ и если $ a = b \cdot c $, где $ b, c \in D \Rightarrow \Big[$\begin{tabular}{l}$ b \in D^*$\\$ c \in D^*$\end{tabular}\\$ a \in D $ назывется простым, если $ a|b \cdot c \Rightarrow \Big[$\begin{tabular}{l}$a|b$\\$a|c$\end{tabular}}
+				\theorem{В кольце целостности всякий простой элемент является неприводимым.}
+				\begin{proof}
+					Рассмотрим $ a \in D $ - простой\\
+					Пусть $ a = b \cdot c $ должны показать$\Rightarrow \Big[$\begin{tabular}{l}$ b \in D^*$\\$ c \in D^*$\end{tabular}\\
+					Из определения следует $\Big[$\begin{tabular}{l}$a|b$\\$a|c$\end{tabular}\\
+					Пусть $ a|b \Rightarrow b = a \cdot t = b \cdot (c \cdot t) \Rightarrow c \cdot t = e \Rightarrow c \in D^* $
+				\end{proof}
+				Кольцо главных идеалов есть кольцо целостности, в котором каждый идеал имеет вид $ (a) $.
+				
+				\theorem{В кольце главных идеалов элемент тогда и только тогда неприводим, когда прост.}
+				
+				\begin{proof}
+					Достаточность доказана в предыдущей теореме\\
+					Докажем необходимость:\\
+					Пусть $ D $ - кольцо главных идеалов, $ a \in D $ - неприводим и $ a|b\cdot c $\\
+					Рассмотрим $ I = \{ax+by \big|x, y\in D\} $ - идеал\\
+					Пусть $ I = (d) $\\
+					$ a \in I \Rightarrow a = d\cdot r, r \in D \Rightarrow \Big[$\begin{tabular}{l}$d \in D^* \Rightarrow 1=ax+by \Rightarrow c=cax+cby \Rightarrow a|c$\\$r \in D^* \Rightarrow b \in I \Rightarrow \exists t \in D \big|b=at \Rightarrow a|b$\end{tabular}
+				\end{proof}
+			\paragraph{Кольцо с единственным разложением на множители}
+				\definition{Кольцо целостности $ D $ называется кольцом с единственным разложением на множители, если:
+				\begin{enumerate}
+					\item Все ненулевые элементы необратимы
+					\item Разложение единственно с точностью до ассоциирования и порядка
+				\end{enumerate}}
+				\lemma{В кольце главных идеалов строго возрастающая цепочка идеалов $ I_1 \subset I_2 \subset ...$ должна быть стабилизированной, то есть иметь конечную длину.}
+				\theorem{Всякое кольцо главных идеалов является кольцом с единственным разложением на множители.}
+				\corollary{Пусть $ F $ - поле, тогда $ F[X] $ - кольцо с единственным разложением на множители.}
+			\paragraph{Евклидовы кольца}
+				\definition{Кольцо целостности $ D $ называется Евклидовым кольцом, если $ \exists $ функция $ d $ (мера) $ \big| d: D\setminus\{0\} \to \Z^{\geq 0}$ и обладает следующими свойствами:
+				\begin{enumerate}
+					\item $ d(a) \leq d(ab) $ для $ \forall a, b \in D\setminus\{0\} $
+					\item Если $ a, b (\neq 0) \in  \Rightarrow \exists q, r \in D \big| a = bq+r $, где $\Big[$\begin{tabular}{l}$r=0$\\$d(r)<d(b)$\end{tabular}
+				\end{enumerate}}
+				Сравнение:\\\\
+				\begin{tabular}{lll}
+					Характеристика&$ \Z $&$ F[X] $\\
+					Вид элементов&$ a_n10^n +... + a_110+a_0 $&$ a_nX^n + ... + a_1X+a_0 $\\
+					Мера $ d $&$ d(a) = |a| $&$d(f(X)) = \deg f$\\
+					$ \Z^* $&$ a $ 0 обратим $ \Leftrightarrow |a| = 1 $&$ f $ 0 обратим $ \Leftrightarrow \deg f = 0 $\\
+					Алгоритм деления&$ a = bq +r, o \leq r < |b| $&$f(X) = q(X)g(X) +r(X),$$\Big[$\begin{tabular}{l}$0\leq \deg r < \deg g$\\$r(X) = 0$\end{tabular}\\
+					Кольцо главных идеалов&$ \forall \neq0\ I=(a), |a|\neq0-min $&$ \forall \neq0\ I=(f(X)), \deg f-min$
+				\end{tabular}
+				Нет нетривиальных множителей, каждый элемент единственным образом раскладывается на множители.
+				\theorem{Любое евклижово кольцо является кольцом главных идеалов.}
+				\begin{proof}
+					$ D $ - евклидово кольцо, $ I(\neq0) \subset D $ - идеал\\
+					Среди всех неравных элементов в $ I $ рассмотрим $ a \big| d(a) $ - минимальна\\
+					Если $ b \in I $, то $ \exists q, r \in D \big| b =aq+r $, где$\Big[$\begin{tabular}{l}$r=0$\\$d(r)<d(a)$\end{tabular}$ \Rightarrow r=b-aq \Rightarrow r \in I $\\
+					Так как $d(r) \geq d(a) \Rightarrow r = 0 \Rightarrow b=aq \Rightarrow b\in(a)\Rightarrow I\subset (a) \Rightarrow I = (a)$
+				\end{proof}
+				\note{$ \exists $ кольца главных идеалов, которые не являются евклидовыми.}
+				\corollary{Любое евклидово кольцо является кольцом с единственным разложением на множители.}
+				\theorem{Если $ D $ - кольцо с единственным разложением на множители, то $ D[X] $ - тоже.}
+			
+\end{document}
