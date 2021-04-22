@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 3
+	\setcounter{section}{2}
+	\section{Поля}
+		\setcounter{subsection}{0}
+		\subsection{Расширение полей}
+		\theorem{Пусть $ F $ - поле, $ P(X) \in F[X] $ - неприводим над $ F $. Если $ \alpha $ - корень$ P(X) $ в некотором расширении $ E $ поля $ F $, то $ F(\alpha) \cong {}^{F[X]}/_{(P(X))} $. Кроме того, если $ \deg P = n $, то $ \forall $ элемент из $ F(\alpha) $ единственным образом представим в слудеющем виде: $ c_{n-1}\alpha^{n-1} + c_{n-2}\alpha^{n-2} + ... + c_1\alpha + c_0 $}
+		\begin{proof}
+			Рассмотрим $ \varphi: $ \begin{tabular}{l}$ F[X] \to F(\alpha)$\\$f(X) \to f(\alpha) $\end{tabular}$ \bigg\} \Rightarrow \varphi $ - гомоморфизм колец $ \Rightarrow Ker\ \varphi = (P(X)) $\\
+			$ \alpha $ - корень $ P(X) $ в некотором расширении $ F(\alpha) \Rightarrow P(\alpha) = 0 \Rightarrow P(X) \in Ker\ \varphi \Rightarrow (P(X)) \subset Ker\ \varphi $\\
+			\begin{tabular}{l}$ F[X] $ - кольцо главных идеалов\\$ P(X) $ - неприводим\end{tabular}$ \bigg\} \Rightarrow (P(X)) $ - максимальный в $ F[X] \Rightarrow \forall $ другой идеал из $ F[X] $ будет содержаться в $ (P(X)) \Rightarrow Ker\ \varphi \subset (P(X)) $\\
+			$ \Rightarrow Ker\ \varphi = (P(X)) $\\
+			Если \begin{tabular}{l}$ Im\ \varphi = F(\alpha)$\\$ Ker\ \varphi = (P(X)) $\end{tabular}$ \bigg\} \Rightarrow {}^{F[X]}/_{Ker\ \varphi} \cong Im\ \varphi \Rightarrow {}^{F[X]}/_{(P(X))} \cong F(\alpha) $\\
+			$ h(X) \in {}^{F[X]}/_{(P(X))} \Rightarrow h(x) + (P(X)) = c_{n-1}X^{n-1} + c_{n-2}X^{n-2} + ... + c_1X + c_0 + (P(X)) \stackrel{x=\alpha}{\longrightarrow} c_{n-1}\alpha^{n-1} + c_{n-2}\alpha^{n-2} + ... + c_1\alpha + c_0 + 0, c_i \in F $
+		\end{proof}
+		\corollary{Пусть $ F $ - поле, $ P(X) \in F[X] $ - неприводим над $ F $. Если $ \alpha $ - корень $ P(X) $ в некотором расширении $ E $ поля $ F $ и $ \beta $ - корень $ P(X) $ в некотором расширении $ E' $ поля $ F $, то $ F(\alpha) \cong F(\beta) $}
+		\lemma{Пусть $ F $ - поле, $ P(X) \in F[X] $ - неприводим над $ F $. Если $ \alpha $ - корень $ P(X) $ в некотором расширении $ E $ поля $ F $. Если $ \varphi $ - изоморфизм полей: $ F \to F' $ и $ \beta $ - корень $ \varphi(P(X)) $ в некотором расширении $ E' $ поля $ F' $, то $ \exists $ изоморфизм: $ F(\alpha) \to F'(\beta) $}
+		\begin{proof}
+			Так как $ P(X) $ - неприводим над $ F \Rightarrow \varphi(P(X)) $ - неприводим над $ F' $\\
+			Необходимо доказать: \begin{tabular}{l}\begin{tabular}{c}$\underbrace{{}^{F[X]}/(P(X))}$\\$f(\alpha)$\end{tabular}$\to$\begin{tabular}{c}$\underbrace{{}^{F'[X]/_{(\varphi(P(X)))}}}$\\$F'(\beta)$\end{tabular}\\$f(X)+(P(X))\to\varphi(f(X))+(\varphi(P(X)))$\end{tabular}\\
+			По предыдущей теореме $ F(\alpha) \cong F'(\alpha) $
+		\end{proof}
+		\theorem{Пусть $ \varphi F \to F' $ - изоморфизм полей $ f(X) \in F[X] $. Если $ E $ - поле разложения многочлена $ f $ над $ F $ и $ E' $ - поле разложения многочлена $ \varphi(f) $ над $ F' $, то $ \exists $ изоморфизм $ E \cong E' $}
+		\corollary{Любые два поля разложения одного многочлена изоморфны}
+		\paragraph{Корни неприводимых многочленов}
+		\definition{Пусть $ f(X) = a_nX^n + ... + a_1X + a_0 \in F[X] $. Производной многочлена $f(X)$ называется многочлен $ f'(X) = na_nX^{n-1} + ... + 2a_2X + a_1 \in F[X] $}
+		\lemma{Пусть $f(X), g(X) \in F[X]$ и $ \alpha \in F $. Тогда:
+		\begin{enumerate}
+			\item $ (f+g)' = f'+g' $
+			\item $ (\alpha \cdot f)' = \alpha \cdot f' $
+			\item $ (f \cdot g)' = f' \cdot g' $
+		\end{enumerate}}
+		\theorem{Многочлен $ f(X) $ над полем $ F $ имеет кратные корни в некотором расширении $ \Leftrightarrow f(X) $ и $ f'(X) $ имеют общий множитель положительной степени в $ F[X] $}
+		\theorem{Пусть $ f(X) $ - неприводим над полем $ F $. Если $ char\ F = 0 $, то $ f(X) $ не имеет кратных корней. Если $ char\ F \neq 0 $, то $ f(X) $ имеет кратные корни, если $ f(X) = g(X') $ для некоторого $ g(X) \in F[X] $}
+		\definition{Поле $ F $ называется совершенным, если $ \Bigg[ $\begin{tabular}{l}$ char\ F=0 $\\$ \Big\{ $\begin{tabular}{l}$ char\ F = P $\\$ F^p=\{\alpha^p\big|\alpha\in F\} = F $\end{tabular}\end{tabular}}
+		\theorem{Любое конечно поле является совершенным}
+		\theorem{Если $ f[X] $ - неприводимо над совершенным полем $ F $, то $ f(X) $ не имеет кратных корней}
+		\theorem{Пусть $ f(X) $ - неприводим над $ F$. $ E $ - поле разложения $ f(x) $ над $ F $. Тогда все корни многочлена $ f(X) $ в $ E $ имеют одинаковую кратность}
+		\corollary{$ f(X) = \alpha(X-\alpha_1)^n(X-\alpha_2)^n...(X-\alpha_m)^n $, где $ \alpha_i \in E, \alpha \in F $}
+\end{document}
