@@ -1,0 +1,41 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 3
+	\setcounter{section}{2}
+	\section{Поля}
+		\setcounter{subsection}{2}
+		\subsection{Алгебраические расширения}
+			\definition{Пусть $ E $ - расширение поля $ F $ ($ {}^E/_F $) и $ \alpha \in E $. $ \alpha $ называется алгебраическим над $ F $, если $ \alpha $ является корнем некоторого ненулевого многочлена в $ F[X] $. Если $ \alpha $ не является алгебраическим над $ F $, то $ \alpha $ называется транцендентом.\\Расширение $ {}^E/_F $ называется алгебраическим, если $ \forall $ элемент из $ E $ является алгебраическим над $ F $. В противном случае $ {}^E/_F $ называется транцендентным.\\Расширение поля $ F $ вида $ F(\alpha) $ называется простым расширением поля $ F $.}
+			\theorem{Пусть $ {}^E/_F $ - расширение полей, $ \alpha \in E $. Если $ \alpha $ - трансцендентный над $ F $, то $ F(\alpha) \cong F[X]$. Если $ \alpha $ - алгебраический над $ F $, то $ F(\alpha) \cong {}^{F[X]}/_{(P(X))} $, где  $ P(X) \in F[X] $. $ \deg p $ - минимальна и $ P(\alpha) = 0 $. $ P(X) $ - неприводим над $ F $.}
+			\theorem{Если $ \alpha $ - алгебраический над $ F $, тогда $ \exists! $ унитарный неприводимый многочлен $ P(X) \in F[X]  \big|  P(\alpha) = 0$. $ P $ - минимальный многочлен элемента $ \alpha $.}
+			\theorem{Пусть $ \alpha $ - алгебраический над $ F, P(X) - min $ многочлен элемента $ \alpha $ над $ F $. Если $ f(X) \in F[X] $ и $ f(\alpha) = 0 $, то $ P(X)|f(X) $ в $ F[X] .$}
+			\paragraph{Конечные расширения}
+			\definition{Пусть $ {}^E/_F $ - расширение полей. Будем говорить, что $ E $ имеет степень $ n $ над $ F ([E:F] = n) $, если $ \dim _F E = n $. Если $ [E:F] $ меньше бесконечности, то $ {}^E/_F $ конечен, иначе - бесконечен.}
+			\theorem{Если $ {}^E/_F $ - конечно расширение полей, то $ {}^E/_F $ - алгебраическое.}
+			\begin{proof}
+				Пусть $ [E:F] = n $\\
+				Рассмотрим $ \alpha \in E $\\
+				Базис состоит из $ n $ элементов\\
+				Рассмотрим $ \{1, \alpha, \alpha^2, ..., \alpha^n\} $ - линейно независимы над $ F $\\
+				$ \Rightarrow \exists c_0, c_1, ..., c_n \in F \big| c_n\alpha^n + c_{n-1}\alpha^{n-1} + ... + c_1\alpha + c_0 = 0$\\
+				$ f(X) = c_nX^n + c_{n-1}X^{n-1} + ... + c_1X + c_0 = 0 $\\
+				$ \Rightarrow \alpha $ - алгебраический над $ F $
+			\end{proof}
+			\theorem{Пусть $ F \subset E \subset K $, $ {}^K/_E $ и $ {}^E/_F $ - конечны. Тогда $ {}^K/_F $ - конечное и $ [K:F] = [K:E] \cdot [E:F] $.}
+		
+\end{document}
