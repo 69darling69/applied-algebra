@@ -1,0 +1,42 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{note}{Замечание}
+
+\usepackage{amssymb}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+	% Изменение отсчета глав, чтобы глава начиналась с 3
+	\setcounter{section}{2}
+	\section{Поля}
+		\setcounter{subsection}{3}
+		\subsection{Конечные поля}
+			\theorem{Для любого простого $ p $ и любого целого положительного $ n $ $ \exists $ с точностю до изоморфизма единственное конечное поле, состоящее из $ p^n $ элементов.}
+			\begin{proof}
+				Рассмотрим поле разложения $ E $ многочлена\\
+				$ f(X) = X^{p^n} - X $ над $ F_p \Rightarrow f(X) $ имеет $ p^n $ корней в $ E $ с учетом их кратности\\
+				Докажем $ |E| = p^n $\\
+				Рассмотрим $ f'(X) = p^n X^{p^n-1} - 1 = -1(mod\ p) $\\
+				В силу теорым о кратности корней: НОД$ (f, f') = const \Rightarrow $ корни $ f(X) $ имеют кратность $ 1 \Rightarrow f(X) $ расскладывается на линейно неповторяющиеся множители в $ E \Rightarrow f(X) $ имеет $ p^n $ различных корней в $ E $\\
+				С другой стороны, множество корней многочлена $ f(X) $ в $ E $ замкнуто относительно операций сложения, вычитания, усножения и деления на ненулевые элементы $ \Rightarrow $ множество корней многочлена $ f(X) $ образует расширение поля $ F_p \Rightarrow E $ - расширение поля $ F_p \Rightarrow |E| = p^n $\\
+				(От противного)\\
+				Пусть $ \exists K \neq E \big| |K|=p^n \Rightarrow K$ имеет подполе, изоморфное полю $ F_p $\\
+				Ненулевые элементы в $ K $ образуют мультипликативную группу порядка $ p^n-1 $\\
+				Рассмотрим $ \alpha \in K^* \Rightarrow \alpha^{p^n-1} = 1 (mod\ p) \Rightarrow \alpha^{p^n} = \alpha (mod\ p) \Rightarrow \alpha $ - корень $ f(X) $ в $ K \Rightarrow K $ - поле разложения многочлена $ f(X) $ на $ F_p $\\
+				Таким образом $ E = {}^{F_p[X]}/_{(f(X))} $ и $ K = {}^{F_p[X]}/_{(f(X))} \Rightarrow E \cong K$
+			\end{proof}
+			\theorem{$ F_{p^n} $ изоморфно как группа \begin{tabular}{c}$ \underbrace{F_p\oplus F_p\oplus...\oplus f_p} $\\n\end{tabular} относительно сложения.\\$ F_{p^n} $ изоморфна как группа отсносительно умножения $ \Z_{p^n-1} $.}
+			\corollary{$ [F_{p^n}:F_p] = n $}
+			\corollary{Пусть $ (F_{p^n})^* = <\alpha> $. Тогда $ \alpha $ - алгебраический на $ F_p $ и степень минимального многочлена элемента $ \alpha = n $.}
+			\theorem{Для любого $ m|n $ поле $ F_{p^n} $ имеет! подполе порядка $ p^m $.}
+		
+\end{document}
